@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stellar Dispatch</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h1 class="title">Stellar Dispatch 🚀📬</h1>
+        <p class="subtitle">Your Cosmic Guide to the Internet's Best Newsletters</p>
+        <div class="tabs">
+            <div class="tab" style="background-color: #FF6B6B;" data-tab="ai">🤖 AI</div>
+            <div class="tab" style="background-color: #4ECDC4;" data-tab="health">🏥 Health</div>
+            <div class="tab" style="background-color: #45B7D1;" data-tab="management">💼 Management</div>
+        </div>
+        <div id="ai" class="tab-content">
+            <table>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Webpage</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>AI Weekly</td>
+                    <td><a href="#">aiweekly.com</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Machine Learnings</td>
+                    <td><a href="#">machinelearnings.co</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>The Algorithm</td>
+                    <td><a href="#">thealgorithm.com</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="health" class="tab-content">
+            <table>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Webpage</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Well+Good</td>
+                    <td><a href="#">wellandgood.com</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Eat This, Not That!</td>
+                    <td><a href="#">eatthis.com</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Nutrition Action</td>
+                    <td><a href="#">nutritionaction.com</a></td>
+                </tr>
+            </table>
+        </div>
+        <div id="management" class="tab-content">
+            <table>
+                <tr>
+                    <th>Rank</th>
+                    <th>Name</th>
+                    <th>Webpage</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Harvard Business Review</td>
+                    <td><a href="#">hbr.org</a></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Strategy+Business</td>
+                    <td><a href="#">strategy-business.com</a></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>McKinsey Insights</td>
+                    <td><a href="#">mckinsey.com/insights</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.tab').click(function () {
+                $('.tab-content').removeClass('active');
+                $('.tab').css('opacity', '0.7');
+                $(this).css('opacity', '1');
+                var tabColor = $(this).css('background-color');
+                var rgbaColor = tabColor.replace(')', ', 0.2)').replace('rgb', 'rgba');
+                var activeTab = $('#' + $(this).data('tab'));
+                activeTab.addClass('active').css('background-color', rgbaColor);
+                activeTab.find('th').css('background-color', tabColor);
+                activeTab.find('td').css('background-color', rgbaColor);
+            });
+            $('.tab:first').click();
+        });
+    </script>
+</body>
+
+</html>
